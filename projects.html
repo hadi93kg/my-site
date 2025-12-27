@@ -5,35 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects | Hadi</title>
 <link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
+
 <style>
-body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;line-height:1.7;}
+body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;}
 nav{
-  background:#020617;padding:16px 30px;display:flex;justify-content:flex-start;align-items:center;gap:25px;
-  flex-wrap:wrap;
+  background:#020617;
+  padding:16px 30px;
+  display:flex;
+  gap:30px;
 }
 nav a{
-  color:#e5e7eb;text-decoration:none;font-size:1.2rem;font-family:'Times New Roman', Times, serif;
+  font-family:"Times New Roman", Times, serif;
+  color:#e5e7eb;
+  text-decoration:none;
+  font-size:1.2rem;
 }
 nav a:hover{color:#f97316;}
+
 section{max-width:1100px;margin:auto;padding:40px 20px;}
-h1{font-size:2rem;margin-bottom:30px;opacity:0;animation:fadeInText 1s forwards;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-.card{
-  background:#020617;border:2px solid #f97316;padding:20px;border-radius:14px;
-  opacity:0;transform:translateY(20px);
-  animation:fadeUp 0.6s ease forwards;
-  transition:transform 0.3s, box-shadow 0.3s;
+h1{
+  font-family:"Times New Roman", Times, serif;
+  font-size:2rem;
+  margin-bottom:30px;
+  animation:fadeDown 1s forwards;
 }
-.card h3{margin-top:0;color:#60a5fa;}
-.card p{margin:10px 0;}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(249,115,22,0.5);}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeInText{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
-@media(max-width:768px){
-h1{font-size:1.6rem;} nav{flex-direction:row;justify-content:space-between;}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.card{
+  background:#020617;
+  border:2px solid #f97316;
+  padding:20px;
+  border-radius:14px;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .6s forwards;
+  transition:.3s;
+}
+.card h3{
+  font-family:"Times New Roman", Times, serif;
+  color:#60a5fa;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 8px 25px rgba(249,115,22,.4);
+}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;}
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -44,24 +73,25 @@ h1{font-size:1.6rem;} nav{flex-direction:row;justify-content:space-between;}
 
 <section>
 <h1>Projects</h1>
+
 <div class="grid">
-  <div class="card"><h3>ربات ترید هوشمند</h3><p>پیش‌بینی بازار با Deep Learning و مدیریت ریسک</p></div>
-  <div class="card"><h3>داشبورد تحلیلی AI</h3><p>تحلیل داده و پیش‌بینی با مدل‌های هوشمند</p></div>
-  <div class="card"><h3>وب‌اپلیکیشن مدیریت داده</h3><p>تحلیل و نمایش داده‌ها با رابط کاربری زیبا</p></div>
-  <div class="card"><h3>سایت فروشگاهی</h3><p>ایجاد فروشگاه آنلاین با React و سئو تکنیکال</p></div>
-  <div class="card"><h3>چت‌بات هوشمند</h3><p>پاسخ‌دهی خودکار به کاربران با NLP</p></div>
-  <div class="card"><h3>سیستم توصیه‌گر</h3><p>پیشنهاد محصولات یا محتوا با الگوریتم‌های ML</p></div>
-  <div class="card"><h3>اپلیکیشن موبایل AI</h3><p>اپلیکیشن تحلیل داده برای موبایل با Flutter</p></div>
-  <div class="card"><h3>تحلیل شبکه‌های اجتماعی</h3><p>داده‌کاوی و تحلیل رفتار کاربران</p></div>
-  <div class="card"><h3>اتوماسیون فرایندها</h3><p>خودکارسازی کارها با Python و API</p></div>
-  <div class="card"><h3>پروژه سفارشی ۱۰</h3><p>توضیح کوتاه درباره پروژه ۱۰</p></div>
+  <div class="card"><h3>AI Trading Bot</h3><p>Market prediction using Deep Learning models</p></div>
+  <div class="card"><h3>Analytics Dashboard</h3><p>Data visualization with AI insights</p></div>
+  <div class="card"><h3>Web Application</h3><p>Modern web app with React & SEO</p></div>
+  <div class="card"><h3>Chatbot System</h3><p>Intelligent chatbot using NLP</p></div>
+  <div class="card"><h3>Recommendation Engine</h3><p>Product & content recommendation</p></div>
+  <div class="card"><h3>Automation Tool</h3><p>Workflow automation with Python</p></div>
+  <div class="card"><h3>Social Media Analyzer</h3><p>User behavior analysis</p></div>
+  <div class="card"><h3>AI Mobile App</h3><p>Smart mobile solution</p></div>
+  <div class="card"><h3>SEO Analyzer</h3><p>Technical SEO automation</p></div>
+  <div class="card"><h3>Custom Project</h3><p>Description of custom solution</p></div>
 </div>
+
 </section>
 
 <script>
-const cards=document.querySelectorAll('.card');
-cards.forEach((c,i)=>{
-  c.style.animationDelay=(i*0.2)+'s';
+document.querySelectorAll('.card').forEach((c,i)=>{
+  c.style.animationDelay = (i*0.15)+'s';
 });
 </script>
 
