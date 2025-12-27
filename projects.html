@@ -7,12 +7,9 @@
 <link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
 <style>
 body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;line-height:1.7;}
-nav{background:#020617;padding:16px 30px;display:flex;justify-content:space-between;align-items:center;}
-nav a{color:#e5e7eb;text-decoration:none;margin-left:20px;}
+nav{background:#020617;padding:16px 30px;display:flex;justify-content:flex-start;align-items:center;gap:25px;}
+nav a{color:#e5e7eb;text-decoration:none;font-size:1.1rem;}
 nav a:hover{color:#f97316;}
-.menu-toggle{display:none;flex-direction:column;cursor:pointer;}
-.menu-toggle span{background:#e5e7eb;height:3px;width:25px;margin:4px 0;border-radius:3px;}
-.nav-links{display:flex;align-items:center;}
 section{max-width:1100px;margin:auto;padding:40px 20px;}
 h1{font-size:2rem;margin-bottom:30px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
@@ -20,34 +17,26 @@ h1{font-size:2rem;margin-bottom:30px;}
 .card h3{margin-top:0;color:#60a5fa;}
 .card p{margin:10px 0;}
 .card:hover{transform:translateY(-5px);transition:.3s;}
-@keyframes fadeUp{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
-@media(max-width:768px){h1{font-size:1.6rem;} .menu-toggle{display:flex;}
-.nav-links{display:none;flex-direction:column;background:#020617;position:absolute;right:0;top:55px;width:200px;border-left:2px solid #f97316;padding:10px;}
-.nav-links.active{display:flex;} nav a{margin:10px 0;}
-}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){h1{font-size:1.6rem;} nav{flex-direction:column;gap:10px;}}
 </style>
 </head>
 <body>
 
 <nav>
-<div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-<div class="nav-links">
-<a href="index.html">خانه</a>
-<a href="projects.html">پروژه‌ها</a>
-<a href="contact.html">تماس</a>
-</div>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <section>
-<h1>پروژه‌ها</h1>
+<h1>Projects</h1>
 <div class="grid" id="projectsGrid">
-<!-- کارت‌ها اینجا اضافه می‌شوند -->
+<!-- کارت‌ها از JSON ساخته می‌شوند -->
 </div>
 </section>
 
 <script>
-function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active');}
-
 // بارگذاری پروژه‌ها از JSON
 fetch('projects.json')
 .then(res => res.json())
@@ -62,5 +51,6 @@ fetch('projects.json')
   });
 });
 </script>
+
 </body>
 </html>
