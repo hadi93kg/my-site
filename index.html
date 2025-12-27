@@ -5,82 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hadi | AI & Deep Learning Developer</title>
 <link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
+
 <style>
 body{
   margin:0;
   font-family:Shabnam, Arial;
   background:#0f172a;
   color:#e5e7eb;
-  line-height:1.8;
-  overflow-x:hidden;
+  line-height:1.9;
 }
 nav{
   background:#020617;
   padding:16px 30px;
   display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  gap:25px;
+  gap:30px;
 }
 nav a{
   color:#e5e7eb;
   text-decoration:none;
   font-size:1.2rem;
-  font-family:'Times New Roman', Times, serif;
+  font-family:"Times New Roman", Times, serif;
 }
 nav a:hover{color:#f97316;}
 
 header{
   text-align:center;
-  padding:50px 20px;
+  padding:45px 20px;
 }
 header h1{
-  font-size:2.4rem;
-  margin-bottom:10px;
-  opacity:0;
-  animation:fadeInText 1s forwards;
+  font-family:"Times New Roman", Times, serif;
+  font-size:2.3rem;
+  margin-bottom:8px;
+  animation:fadeDown 1s forwards;
 }
 header p{
+  font-family:"Times New Roman", Times, serif;
   font-size:1.6rem;
   color:#f97316;
-  margin-top:0;
-  opacity:0;
-  animation:fadeInText 1s 0.5s forwards;
+  margin:0;
+  animation:fadeDown 1.2s forwards;
 }
 
 section{
-  max-width:900px;
+  max-width:950px;
   margin:auto;
   padding:40px 20px;
 }
-h2{color:#60a5fa;}
-.skill-list{
+h2{
+  color:#60a5fa;
+  margin-bottom:15px;
+}
+.skills-title{
+  font-family:"Times New Roman", Times, serif;
+  font-size:1.4rem;
+  margin-top:40px;
+  margin-bottom:15px;
+  color:#f97316;
+}
+.skills{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
 }
-.skill-tag{
-  display:inline-block;
-  background:#1e293b;
-  padding:5px 12px;
-  border-radius:20px;
-  margin:3px;
-  font-size:0.9rem;
+.skill{
   border:1px solid #f97316;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:0.9rem;
 }
 
-@keyframes fadeInText{
-  from{opacity:0;transform:translateY(-10px);}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-15px);}
   to{opacity:1;transform:translateY(0);}
 }
 
 @media(max-width:768px){
+nav{flex-wrap:wrap;}
 header h1{font-size:2rem;}
-header p{font-size:1.4rem;}
-nav{flex-direction:column;align-items:flex-start;}
+header p{font-size:1.3rem;}
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -90,33 +96,41 @@ nav{flex-direction:column;align-items:flex-start;}
 </nav>
 
 <header>
-<h1>Hadi Kanani</h1>
-<p>AI & Deep Learning Developer</p>
+  <h1>Hadi Kanani</h1>
+  <p>AI & Deep Learning Developer</p>
 </header>
 
 <section>
-<h2>About Me</h2>
-<p>
-من یک توسعه‌دهنده و متخصص هوش مصنوعی و یادگیری عمیق هستم. تمرکز من روی ساخت سیستم‌های هوشمند، تحلیل داده، طراحی وب و سئو تکنیکال است.
-</p>
-<p>
-در طول سال‌ها پروژه‌های مختلفی در زمینه‌های برنامه‌نویسی، هوش مصنوعی و توسعه وب انجام داده‌ام و همیشه تلاش می‌کنم کارهایم کاربردی و قابل توسعه باشند.
-</p>
-<p>
-مهارت‌های من شامل ساخت مدل‌های هوش مصنوعی، یادگیری عمیق، تحلیل داده‌ها، طراحی وب با HTML/CSS و React، اتوماسیون و بهینه‌سازی سئو می‌باشد.
-</p>
+  <h2>About Me</h2>
+  <p>
+    من توسعه‌دهنده و متخصص هوش مصنوعی و یادگیری عمیق هستم و تمرکز اصلی من روی
+    ساخت سیستم‌های هوشمند، تحلیل داده و توسعه وب می‌باشد.
+  </p>
+  <p>
+    در طول فعالیت حرفه‌ای خود پروژه‌های متعددی در حوزه‌های AI، Deep Learning،
+    وب‌اپلیکیشن و سئو تکنیکال انجام داده‌ام و همواره سعی کرده‌ام
+    راهکارهایی عملی و قابل توسعه ارائه دهم.
+  </p>
+  <p>
+    هدف من ترکیب هوش مصنوعی با وب و داده برای خلق محصولات هوشمند،
+    کاربردی و قابل ارائه به کسب‌وکارها است.
+  </p>
 
-<div class="skill-list">
-  <span class="skill-tag">Deep Learning</span>
-  <span class="skill-tag">TensorFlow</span>
-  <span class="skill-tag">PyTorch</span>
-  <span class="skill-tag">Python</span>
-  <span class="skill-tag">JavaScript</span>
-  <span class="skill-tag">HTML/CSS</span>
-  <span class="skill-tag">React</span>
-  <span class="skill-tag">SEO</span>
-  <span class="skill-tag">Automation</span>
-</div>
+  <div class="skills-title">My Skills</div>
+  <div class="skills">
+    <span class="skill">Artificial Intelligence</span>
+    <span class="skill">Deep Learning</span>
+    <span class="skill">Machine Learning</span>
+    <span class="skill">TensorFlow</span>
+    <span class="skill">PyTorch</span>
+    <span class="skill">Python</span>
+    <span class="skill">Web Development</span>
+    <span class="skill">HTML / CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">React</span>
+    <span class="skill">SEO Technical</span>
+    <span class="skill">Automation</span>
+  </div>
 </section>
 
 </body>
