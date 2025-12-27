@@ -6,48 +6,38 @@
 <title>AI & Deep Learning Developer</title>
 
 <style>
-/* ===== RESET ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
-/* ===== BODY ===== */
 body{
   background:#020617;
   color:#e5e7eb;
   font-family:"Times New Roman", Times, serif;
-  line-height:1.8;
+  line-height:1.9;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== NAV ===== */
 nav{
+  position:fixed;
+  top:0;
+  width:100%;
   background:#020617;
   padding:18px 32px;
   display:flex;
   gap:40px;
-  align-items:center;
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:100;
   border-bottom:1px solid #1e293b;
+  z-index:100;
 }
 
 nav a{
-  text-decoration:none;
   color:#e5e7eb;
+  text-decoration:none;
   font-size:18px;
-  letter-spacing:1px;
   transition:.3s;
 }
 
-nav a:hover{
-  color:#f97316;
-}
+nav a:hover{color:#f97316}
 
-/* ===== SECTIONS ===== */
+/* ===== SECTION ===== */
 section{
   padding:120px 40px 80px;
   max-width:1100px;
@@ -55,10 +45,6 @@ section{
   opacity:0;
   transform:translateY(30px);
   animation:fadeUp 1s forwards;
-}
-
-#projects{
-  animation-delay:.2s;
 }
 
 /* ===== HOME ===== */
@@ -70,55 +56,39 @@ section{
   text-align:center;
 }
 
-h1{
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-.subtitle{
-  font-size:40px;
-  color:#60a5fa;
-}
+h1{font-size:32px}
+.subtitle{font-size:40px;color:#60a5fa}
 
 /* ===== ABOUT ===== */
-#about h2{
-  margin-bottom:15px;
-}
+#about p{margin-top:18px;font-size:18px}
 
-#about p{
-  margin-top:18px;
-  font-size:18px;
-}
-
-/* ===== PERSIAN ABOUT ===== */
 .about-fa{
-  margin-top:20px;
-  font-family:Tahoma, sans-serif;
+  margin-top:30px;
   direction:rtl;
-  color:#cbd5f5;
+  font-family:Tahoma,sans-serif;
   font-size:17px;
-  line-height:2;
+  line-height:2.1;
+  color:#cbd5f5;
 }
 
 /* ===== SKILLS ===== */
 .skills-title{
-  margin-top:40px;
+  margin-top:45px;
   font-size:24px;
   color:#f97316;
 }
 
 .skills{
-  margin-top:15px;
   display:flex;
   flex-wrap:wrap;
   gap:14px;
+  margin-top:15px;
 }
 
 .skill{
   border:1px solid #1e293b;
   padding:10px 16px;
   border-radius:8px;
-  font-size:16px;
 }
 
 /* ===== PROJECTS ===== */
@@ -141,49 +111,29 @@ h1{
   border-color:#f97316;
 }
 
-.project-card h3{
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.project-card p{
-  font-size:16px;
-  color:#cbd5f5;
-}
-
 /* ===== CONTACT ===== */
 .contact a{
   display:block;
   margin:10px 0;
-  text-decoration:none;
   color:#60a5fa;
-  font-size:18px;
+  text-decoration:none;
 }
 
 /* ===== ANIMATION ===== */
 @keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  to{opacity:1;transform:translateY(0)}
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  nav{
-    gap:25px;
-    overflow-x:auto;
-  }
-  section{
-    padding:110px 20px 70px;
-  }
+  nav{gap:25px;overflow-x:auto}
+  section{padding:110px 20px 70px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== NAV ===== -->
 <nav>
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
@@ -191,40 +141,38 @@ h1{
   <a href="#contact">CONTACT</a>
 </nav>
 
-<!-- ===== HOME ===== -->
 <section id="home">
   <h1>Hadi</h1>
   <div class="subtitle">AI & Deep Learning Developer</div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
   <h2>About Me</h2>
 
-  <p>
-    I am an AI & Deep Learning developer focused on building intelligent systems,
-    data-driven solutions, and modern web applications.
-  </p>
+  <p>I am an AI & Deep Learning developer focused on building intelligent systems,
+  data-driven solutions, and modern web applications.</p>
 
-  <p>
-    My work includes machine learning models, neural networks, automation tools,
-    and scalable websites with clean and efficient architecture.
-  </p>
+  <p>My work includes machine learning models, neural networks, automation tools,
+  and scalable websites with clean and efficient architecture.</p>
 
-  <p>
-    I enjoy solving real-world problems using technology and continuously improving
-    performance, accuracy, and user experience.
-  </p>
+  <p>I enjoy solving real-world problems using technology and continuously improving
+  performance, accuracy, and user experience.</p>
 
-  <!-- فارسی -->
   <div class="about-fa">
-    من توسعه‌دهنده هوش مصنوعی و یادگیری عمیق هستم و تمرکز من روی
-    طراحی سیستم‌های هوشمند، مدل‌های پیش‌بینی، پروژه‌های مبتنی بر داده
-    و توسعه وب‌سایت‌های مدرن و بهینه‌شده برای سئو است.
+    من توسعه‌دهنده هوش مصنوعی و یادگیری عمیق هستم و تمرکز اصلی من روی طراحی
+    سیستم‌های هوشمند، مدل‌های پیش‌بینی و راهکارهای مبتنی بر داده است.
+    <br><br>
+    در پروژه‌های خود از الگوریتم‌های یادگیری ماشین، شبکه‌های عصبی عمیق و
+    تحلیل داده برای حل مسائل واقعی استفاده می‌کنم.
+    <br><br>
+    علاوه بر هوش مصنوعی، در زمینه توسعه وب‌سایت‌های مدرن، بهینه‌سازی فنی سئو
+    و ساخت ابزارهای اتوماسیون نیز فعالیت دارم.
+    <br><br>
+    هدف من ایجاد راه‌حل‌هایی است که هم از نظر فنی دقیق باشند و هم تجربه کاربری
+    بهتری برای مخاطب فراهم کنند.
   </div>
 
   <div class="skills-title">My Skills</div>
-
   <div class="skills">
     <div class="skill">Deep Learning</div>
     <div class="skill">Machine Learning</div>
@@ -236,21 +184,24 @@ h1{
   </div>
 </section>
 
-<!-- ===== PROJECTS (PAGE 2) ===== -->
+<!-- ===== PAGE 2 ===== -->
 <section id="projects">
   <h2>Projects</h2>
 
   <div class="projects">
-    <div class="project-card"><h3>Project 01</h3><p>AI-based solution description.</p></div>
-    <div class="project-card"><h3>Project 02</h3><p>Deep learning application.</p></div>
-    <div class="project-card"><h3>Project 03</h3><p>Machine learning system.</p></div>
-    <div class="project-card"><h3>Project 04</h3><p>Data analysis platform.</p></div>
-    <div class="project-card"><h3>Project 05</h3><p>Automation tool.</p></div>
-    <div class="project-card"><h3>Project 06</h3><p>Smart prediction model.</p></div>
+    <div class="project-card">Project 01</div>
+    <div class="project-card">Project 02</div>
+    <div class="project-card">Project 03</div>
+    <div class="project-card">Project 04</div>
+    <div class="project-card">Project 05</div>
+    <div class="project-card">Project 06</div>
+    <div class="project-card">Project 07</div>
+    <div class="project-card">Project 08</div>
+    <div class="project-card">Project 09</div>
+    <div class="project-card">Project 10</div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
