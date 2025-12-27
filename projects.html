@@ -4,94 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects | Hadi</title>
-
-<link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet">
-
+<link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
 <style>
-body{
-  margin:0;
-  font-family:Vazirmatn, Arial;
-  background:#0f172a;
-  color:#e5e7eb;
-}
-nav{
-  background:#020617;
-  padding:15px;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-}
-nav a{color:#fff;text-decoration:none}
-section{max-width:1100px;margin:auto;padding:60px 20px}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-}
-
-.project-card{
-  background:#020617;
-  border:2px solid #f97316;
-  border-radius:18px;
-  padding:25px;
-  transition:.3s;
-}
-
-.project-card:hover{
-  transform:translateY(-6px);
-}
-
-.tags span{
-  display:inline-block;
-  background:#1e293b;
-  padding:5px 12px;
-  border-radius:20px;
-  margin:4px;
-  font-size:.85rem;
-}
-
-.meta{
-  margin-top:10px;
-  font-size:.85rem;
-  opacity:.7;
+body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;line-height:1.7;}
+nav{background:#020617;padding:16px 30px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#e5e7eb;text-decoration:none;margin-left:20px;}
+nav a:hover{color:#f97316;}
+.menu-toggle{display:none;flex-direction:column;cursor:pointer;}
+.menu-toggle span{background:#e5e7eb;height:3px;width:25px;margin:4px 0;border-radius:3px;}
+.nav-links{display:flex;align-items:center;}
+section{max-width:1100px;margin:auto;padding:40px 20px;}
+h1{font-size:2rem;margin-bottom:30px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card{background:#020617;border:2px solid #f97316;padding:20px;border-radius:14px;opacity:0;transform:translateY(20px);animation:fadeUp 0.6s ease forwards;}
+.card h3{margin-top:0;color:#60a5fa;}
+.card p{margin:10px 0;}
+.card:hover{transform:translateY(-5px);transition:.3s;}
+@keyframes fadeUp{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
+@media(max-width:768px){h1{font-size:1.6rem;} .menu-toggle{display:flex;}
+.nav-links{display:none;flex-direction:column;background:#020617;position:absolute;right:0;top:55px;width:200px;border-left:2px solid #f97316;padding:10px;}
+.nav-links.active{display:flex;} nav a{margin:10px 0;}
 }
 </style>
 </head>
-
 <body>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
+<div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+<div class="nav-links">
+<a href="index.html">خانه</a>
+<a href="projects.html">پروژه‌ها</a>
+<a href="contact.html">تماس</a>
+</div>
 </nav>
 
 <section>
-<h1>Projects</h1>
-
-<div class="grid">
-
-<!-- 🔽 فقط این بلاک رو کپی کن برای پروژه جدید -->
-<div class="project-card">
-  <h3>AI Trading Bot</h3>
-  <p>
-    ربات ترید هوشمند مبتنی بر Deep Learning برای پیش‌بینی بازار
-    و مدیریت ریسک پویا
-  </p>
-
-  <div class="tags">
-    <span>Python</span>
-    <span>PyTorch</span>
-    <span>Time Series</span>
-  </div>
-
-  <div class="meta">Client Project – Punisha</div>
-</div>
-<!-- 🔼 پایان پروژه -->
-
+<h1>پروژه‌ها</h1>
+<div class="grid" id="projectsGrid">
+<!-- کارت‌ها اینجا اضافه می‌شوند -->
 </div>
 </section>
 
+<script>
+function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active');}
+
+// بارگذاری پروژه‌ها از JSON
+fetch('projects.json')
+.then(res => res.json())
+.then(data => {
+  const grid = document.getElementById('projectsGrid');
+  data.forEach((proj,i)=>{
+    const card = document.createElement('div');
+    card.className='card';
+    card.style.animationDelay=(i*0.2)+'s';
+    card.innerHTML=<h3>${proj.title}</h3><p>${proj.description}</p>;
+    grid.appendChild(card);
+  });
+});
+</script>
 </body>
 </html>
