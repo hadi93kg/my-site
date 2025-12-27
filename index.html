@@ -18,37 +18,66 @@ body{
   font-family:"Times New Roman", Times, serif;
 }
 
-/* ===== GENERAL ===== */
+/* ===== NAV ===== */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:18px;
+  background:#020617;
+  z-index:100;
+}
+
+nav a{
+  color:#93c5fd;
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#f97316;
+}
+
+/* ===== SECTIONS ===== */
 section{
   min-height:100vh;
+  padding:120px 20px 60px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
   text-align:center;
-  padding:60px 20px;
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
 }
 
 /* ===== HOME ===== */
 .name{
-  font-size:28px;
-  margin-bottom:8px;
+  font-size:26px;
+  margin-bottom:6px;
 }
 
 .role{
   font-size:42px;
   color:#60a5fa;
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 
 .about-en{
-  max-width:750px;
+  max-width:800px;
   font-size:18px;
-  margin-bottom:14px;
+  margin-bottom:18px;
 }
 
 .about-fa{
-  max-width:750px;
+  max-width:800px;
   font-size:17px;
   direction:rtl;
   font-family:Tahoma, sans-serif;
@@ -56,10 +85,6 @@ section{
 }
 
 /* ===== PROJECTS ===== */
-#projects{
-  background:#020617;
-}
-
 .projects-title{
   font-size:36px;
   margin-bottom:40px;
@@ -68,35 +93,38 @@ section{
 .projects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-  width:100%;
+  gap:25px;
   max-width:1100px;
+  width:100%;
 }
 
-.project-card{
+.project{
   border:1px solid #1e293b;
-  padding:22px;
+  padding:24px;
   border-radius:14px;
   transition:.4s;
 }
 
-.project-card:hover{
-  transform:translateY(-6px);
+.project:hover{
+  transform:translateY(-8px);
   border-color:#f97316;
 }
 
-.project-card h3{
+.project h3{
   font-size:22px;
   margin-bottom:10px;
 }
 
-.project-card p{
+.project p{
   font-size:16px;
   color:#cbd5f5;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
+  nav{
+    gap:20px;
+  }
   .role{
     font-size:34px;
   }
@@ -106,7 +134,14 @@ section{
 
 <body>
 
-<!-- ===== SECTION 1 : HOME ===== -->
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ===== HOME ===== -->
 <section id="home">
 
   <div class="name">Hadi</div>
@@ -114,44 +149,50 @@ section{
 
   <div class="about-en">
     I am an AI and Deep Learning developer focused on building intelligent systems,
-    machine learning models, and modern data-driven solutions.
+    predictive models, and real-world machine learning solutions.
   </div>
 
   <div class="about-fa">
     من توسعه‌دهنده هوش مصنوعی و دیپ‌لرنینگ هستم و تمرکزم روی
-    ساخت سیستم‌های هوشمند، مدل‌های یادگیری ماشین و راهکارهای
-    داده‌محور مدرن است.
+    ساخت سیستم‌های هوشمند، مدل‌های پیش‌بینی و راهکارهای
+    عملی مبتنی بر داده در دنیای واقعی است.
   </div>
 
 </section>
 
-<!-- ===== SECTION 2 : PROJECTS ===== -->
+<!-- ===== PROJECTS ===== -->
 <section id="projects">
 
   <div class="projects-title">Projects</div>
 
   <div class="projects">
-    <div class="project-card">
-      <h3>Project One</h3>
-      <p>AI-based system for solving real-world problems.</p>
+    <div class="project">
+      <h3>AI Trading Bot</h3>
+      <p>Deep learning based market prediction system.</p>
     </div>
 
-    <div class="project-card">
-      <h3>Project Two</h3>
-      <p>Deep learning model with optimized performance.</p>
+    <div class="project">
+      <h3>Data Analytics Platform</h3>
+      <p>AI-powered dashboard for data analysis.</p>
     </div>
 
-    <div class="project-card">
-      <h3>Project Three</h3>
-      <p>Machine learning solution with practical applications.</p>
+    <div class="project">
+      <h3>Web AI Application</h3>
+      <p>Smart web app using machine learning models.</p>
     </div>
 
-    <div class="project-card">
-      <h3>Project Four</h3>
-      <p>Intelligent automation and data processing system.</p>
+    <div class="project">
+      <h3>Automation System</h3>
+      <p>Intelligent automation and optimization solution.</p>
     </div>
   </div>
 
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="projects-title">Contact</div>
+  <p>Email: your@email.com</p>
 </section>
 
 </body>
