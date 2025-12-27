@@ -7,18 +7,31 @@
 <link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
 <style>
 body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;line-height:1.7;}
-nav{background:#020617;padding:16px 30px;display:flex;justify-content:flex-start;align-items:center;gap:25px;}
-nav a{color:#e5e7eb;text-decoration:none;font-size:1.2rem;font-family:Arial, sans-serif;}
+nav{
+  background:#020617;padding:16px 30px;display:flex;justify-content:flex-start;align-items:center;gap:25px;
+  flex-wrap:wrap;
+}
+nav a{
+  color:#e5e7eb;text-decoration:none;font-size:1.2rem;font-family:'Times New Roman', Times, serif;
+}
 nav a:hover{color:#f97316;}
 section{max-width:1100px;margin:auto;padding:40px 20px;}
-h1{font-size:2rem;margin-bottom:30px;}
+h1{font-size:2rem;margin-bottom:30px;opacity:0;animation:fadeInText 1s forwards;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-.card{background:#020617;border:2px solid #f97316;padding:20px;border-radius:14px;opacity:0;transform:translateY(20px);animation:fadeUp 0.6s ease forwards;}
+.card{
+  background:#020617;border:2px solid #f97316;padding:20px;border-radius:14px;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 0.6s ease forwards;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
 .card h3{margin-top:0;color:#60a5fa;}
 .card p{margin:10px 0;}
-.card:hover{transform:translateY(-5px);transition:.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(249,115,22,0.5);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@media(max-width:768px){h1{font-size:1.6rem;} nav{flex-direction:column;gap:10px;}}
+@keyframes fadeInText{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){
+h1{font-size:1.6rem;} nav{flex-direction:row;justify-content:space-between;}
+}
 </style>
 </head>
 <body>
@@ -46,8 +59,10 @@ h1{font-size:2rem;margin-bottom:30px;}
 </section>
 
 <script>
-const cards = document.querySelectorAll('.card');
-cards.forEach((c,i)=>{c.style.animationDelay=(i*0.2)+'s';});
+const cards=document.querySelectorAll('.card');
+cards.forEach((c,i)=>{
+  c.style.animationDelay=(i*0.2)+'s';
+});
 </script>
 
 </body>
