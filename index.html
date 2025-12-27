@@ -6,18 +6,78 @@
 <title>Hadi | AI & Deep Learning Developer</title>
 <link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
 <style>
-body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;line-height:1.8;}
-nav{background:#020617;padding:16px 30px;display:flex;justify-content:flex-start;align-items:center;gap:25px;}
-nav a{color:#e5e7eb;text-decoration:none;font-size:1.2rem;font-family:Arial, sans-serif;}
+body{
+  margin:0;
+  font-family:Shabnam, Arial;
+  background:#0f172a;
+  color:#e5e7eb;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+nav{
+  background:#020617;
+  padding:16px 30px;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:25px;
+}
+nav a{
+  color:#e5e7eb;
+  text-decoration:none;
+  font-size:1.2rem;
+  font-family:'Times New Roman', Times, serif;
+}
 nav a:hover{color:#f97316;}
-header{text-align:center;padding:50px 20px;}
-header h1{font-size:2.4rem;margin-bottom:10px; animation:fadeIn 1s ease;}
-header p{font-size:1.6rem;color:#f97316;margin-top:0; animation:fadeIn 1.2s ease;}
-section{max-width:900px;margin:auto;padding:40px 20px;}
+
+header{
+  text-align:center;
+  padding:50px 20px;
+}
+header h1{
+  font-size:2.4rem;
+  margin-bottom:10px;
+  opacity:0;
+  animation:fadeInText 1s forwards;
+}
+header p{
+  font-size:1.6rem;
+  color:#f97316;
+  margin-top:0;
+  opacity:0;
+  animation:fadeInText 1s 0.5s forwards;
+}
+
+section{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
 h2{color:#60a5fa;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.skill-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.skill-tag{
+  display:inline-block;
+  background:#1e293b;
+  padding:5px 12px;
+  border-radius:20px;
+  margin:3px;
+  font-size:0.9rem;
+  border:1px solid #f97316;
+}
+
+@keyframes fadeInText{
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
 @media(max-width:768px){
-header h1{font-size:2rem;} header p{font-size:1.4rem;} nav{flex-direction:column;gap:10px;}
+header h1{font-size:2rem;}
+header p{font-size:1.4rem;}
+nav{flex-direction:column;align-items:flex-start;}
 }
 </style>
 </head>
@@ -43,8 +103,20 @@ header h1{font-size:2rem;} header p{font-size:1.4rem;} nav{flex-direction:column
 در طول سال‌ها پروژه‌های مختلفی در زمینه‌های برنامه‌نویسی، هوش مصنوعی و توسعه وب انجام داده‌ام و همیشه تلاش می‌کنم کارهایم کاربردی و قابل توسعه باشند.
 </p>
 <p>
-هدف من ارائه راهکارهای هوشمند و جذاب برای کسب‌وکارها و پروژه‌های شخصی است تا بتوانم مهارت‌ها و تجربیاتم را به بهترین شکل به نمایش بگذارم.
+مهارت‌های من شامل ساخت مدل‌های هوش مصنوعی، یادگیری عمیق، تحلیل داده‌ها، طراحی وب با HTML/CSS و React، اتوماسیون و بهینه‌سازی سئو می‌باشد.
 </p>
+
+<div class="skill-list">
+  <span class="skill-tag">Deep Learning</span>
+  <span class="skill-tag">TensorFlow</span>
+  <span class="skill-tag">PyTorch</span>
+  <span class="skill-tag">Python</span>
+  <span class="skill-tag">JavaScript</span>
+  <span class="skill-tag">HTML/CSS</span>
+  <span class="skill-tag">React</span>
+  <span class="skill-tag">SEO</span>
+  <span class="skill-tag">Automation</span>
+</div>
 </section>
 
 </body>
