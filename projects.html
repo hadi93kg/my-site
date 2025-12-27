@@ -8,7 +8,7 @@
 <style>
 body{margin:0;font-family:Shabnam, Arial;background:#0f172a;color:#e5e7eb;line-height:1.7;}
 nav{background:#020617;padding:16px 30px;display:flex;justify-content:flex-start;align-items:center;gap:25px;}
-nav a{color:#e5e7eb;text-decoration:none;font-size:1.1rem;}
+nav a{color:#e5e7eb;text-decoration:none;font-size:1.2rem;font-family:Arial, sans-serif;}
 nav a:hover{color:#f97316;}
 section{max-width:1100px;margin:auto;padding:40px 20px;}
 h1{font-size:2rem;margin-bottom:30px;}
@@ -31,25 +31,23 @@ h1{font-size:2rem;margin-bottom:30px;}
 
 <section>
 <h1>Projects</h1>
-<div class="grid" id="projectsGrid">
-<!-- کارت‌ها از JSON ساخته می‌شوند -->
+<div class="grid">
+  <div class="card"><h3>ربات ترید هوشمند</h3><p>پیش‌بینی بازار با Deep Learning و مدیریت ریسک</p></div>
+  <div class="card"><h3>داشبورد تحلیلی AI</h3><p>تحلیل داده و پیش‌بینی با مدل‌های هوشمند</p></div>
+  <div class="card"><h3>وب‌اپلیکیشن مدیریت داده</h3><p>تحلیل و نمایش داده‌ها با رابط کاربری زیبا</p></div>
+  <div class="card"><h3>سایت فروشگاهی</h3><p>ایجاد فروشگاه آنلاین با React و سئو تکنیکال</p></div>
+  <div class="card"><h3>چت‌بات هوشمند</h3><p>پاسخ‌دهی خودکار به کاربران با NLP</p></div>
+  <div class="card"><h3>سیستم توصیه‌گر</h3><p>پیشنهاد محصولات یا محتوا با الگوریتم‌های ML</p></div>
+  <div class="card"><h3>اپلیکیشن موبایل AI</h3><p>اپلیکیشن تحلیل داده برای موبایل با Flutter</p></div>
+  <div class="card"><h3>تحلیل شبکه‌های اجتماعی</h3><p>داده‌کاوی و تحلیل رفتار کاربران</p></div>
+  <div class="card"><h3>اتوماسیون فرایندها</h3><p>خودکارسازی کارها با Python و API</p></div>
+  <div class="card"><h3>پروژه سفارشی ۱۰</h3><p>توضیح کوتاه درباره پروژه ۱۰</p></div>
 </div>
 </section>
 
 <script>
-// بارگذاری پروژه‌ها از JSON
-fetch('projects.json')
-.then(res => res.json())
-.then(data => {
-  const grid = document.getElementById('projectsGrid');
-  data.forEach((proj,i)=>{
-    const card = document.createElement('div');
-    card.className='card';
-    card.style.animationDelay=(i*0.2)+'s';
-    card.innerHTML=<h3>${proj.title}</h3><p>${proj.description}</p>;
-    grid.appendChild(card);
-  });
-});
+const cards = document.querySelectorAll('.card');
+cards.forEach((c,i)=>{c.style.animationDelay=(i*0.2)+'s';});
 </script>
 
 </body>
