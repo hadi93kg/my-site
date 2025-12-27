@@ -1,139 +1,254 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hadi | AI & Deep Learning Developer</title>
-<link href="https://cdn.jsdelivr.net/npm/shabnam-font@5.0.1/dist/font-face.css" rel="stylesheet">
+<title>AI & Deep Learning Developer</title>
 
 <style>
-body{
+/* ===== RESET ===== */
+*{
   margin:0;
-  font-family:Shabnam, Arial;
-  background:#0f172a;
-  color:#e5e7eb;
-  line-height:1.9;
+  padding:0;
+  box-sizing:border-box;
 }
+
+/* ===== BODY ===== */
+body{
+  background:#020617;
+  color:#e5e7eb;
+  font-family:"Times New Roman", Times, serif;
+  line-height:1.8;
+}
+
+/* ===== NAVBAR ===== */
 nav{
   background:#020617;
-  padding:16px 30px;
+  padding:18px 32px;
   display:flex;
-  gap:30px;
+  flex-direction:row;
+  gap:40px;
+  align-items:center;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  border-bottom:1px solid #1e293b;
 }
+
 nav a{
-  color:#e5e7eb;
   text-decoration:none;
-  font-size:1.2rem;
-  font-family:"Times New Roman", Times, serif;
+  color:#e5e7eb;
+  font-size:18px;
+  letter-spacing:1px;
+  transition:.3s;
 }
-nav a:hover{color:#f97316;}
 
-header{
-  text-align:center;
-  padding:45px 20px;
-}
-header h1{
-  font-family:"Times New Roman", Times, serif;
-  font-size:2.3rem;
-  margin-bottom:8px;
-  animation:fadeDown 1s forwards;
-}
-header p{
-  font-family:"Times New Roman", Times, serif;
-  font-size:1.6rem;
+nav a:hover{
   color:#f97316;
-  margin:0;
-  animation:fadeDown 1.2s forwards;
 }
 
+/* ===== SECTIONS ===== */
 section{
-  max-width:950px;
+  padding:120px 40px 80px;
+  max-width:1100px;
   margin:auto;
-  padding:40px 20px;
-} 
-h2{
-  color:#60a5fa;
-  margin-bottom:15px;
 }
-.skills-title{
+
+/* ===== TITLES ===== */
+h1,h2,h3{
   font-family:"Times New Roman", Times, serif;
-  font-size:1.4rem;
+}
+
+h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  font-size:26px;
+  color:#60a5fa;
+}
+
+/* ===== ABOUT ===== */
+#about p{
+  margin-top:18px;
+  font-size:18px;
+}
+
+/* ===== SKILLS ===== */
+.skills-title{
   margin-top:40px;
-  margin-bottom:15px;
+  font-size:24px;
   color:#f97316;
 }
+
 .skills{
+  margin-top:15px;
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:14px;
 }
+
 .skill{
-  border:1px solid #f97316;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:0.9rem;
+  border:1px solid #1e293b;
+  padding:10px 16px;
+  border-radius:8px;
+  font-size:16px;
 }
 
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-15px);}
-  to{opacity:1;transform:translateY(0);}
+/* ===== PROJECTS ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+  margin-top:30px;
 }
 
+.project-card{
+  background:#020617;
+  border:1px solid #1e293b;
+  padding:22px;
+  border-radius:14px;
+  transition:.4s;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s forwards;
+}
+
+.project-card:hover{
+  transform:translateY(-6px);
+  border-color:#f97316;
+}
+
+.project-card h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.project-card p{
+  font-size:16px;
+  color:#cbd5f5;
+}
+
+/* ===== CONTACT ===== */
+.contact a{
+  display:block;
+  margin:10px 0;
+  text-decoration:none;
+  color:#60a5fa;
+  font-size:18px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== PAGE LOAD TEXT ANIMATION ===== */
+.animate{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s forwards;
+}
+
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-nav{flex-wrap:wrap;}
-header h1{font-size:2rem;}
-header p{font-size:1.3rem;}
+  nav{
+    gap:25px;
+    overflow-x:auto;
+  }
+  section{
+    padding:110px 20px 70px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===== NAV ===== -->
 <nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="contact.html">Contact</a>
+  <a href="#home">HOME</a>
+  <a href="#about">ABOUT</a>
+  <a href="#projects">PROJECTS</a>
+  <a href="#contact">CONTACT</a>
 </nav>
 
-<header>
-  <h1>Hadi Kanani</h1>
-  <p>AI & Deep Learning Developer</p>
-</header>
+<!-- ===== HOME ===== -->
+<section id="home">
+  <h1 class="animate" style="animation-delay:.1s;">Your Name</h1>
+  <div class="subtitle animate" style="animation-delay:.3s;">
+    AI & Deep Learning Developer
+  </div>
+</section>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    من توسعه‌دهنده و متخصص هوش مصنوعی و یادگیری عمیق هستم و تمرکز اصلی من روی
-    ساخت سیستم‌های هوشمند، تحلیل داده و توسعه وب می‌باشد.
-  </p>
-  <p>
-    در طول فعالیت حرفه‌ای خود پروژه‌های متعددی در حوزه‌های AI، Deep Learning،
-    وب‌اپلیکیشن و سئو تکنیکال انجام داده‌ام و همواره سعی کرده‌ام
-    راهکارهایی عملی و قابل توسعه ارائه دهم.
-  </p>
-  <p>
-    هدف من ترکیب هوش مصنوعی با وب و داده برای خلق محصولات هوشمند،
-    کاربردی و قابل ارائه به کسب‌وکارها است.
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <h2 class="animate" style="animation-delay:.1s;">About Me</h2>
+
+  <p class="animate" style="animation-delay:.3s;">
+    I am an AI & Deep Learning developer focused on building intelligent systems,
+    data-driven solutions, and modern web applications.
   </p>
 
-  <div class="skills-title">My Skills</div>
-  <div class="skills">
-    <span class="skill">Artificial Intelligence</span>
-    <span class="skill">Deep Learning</span>
-    <span class="skill">Machine Learning</span>
-    <span class="skill">TensorFlow</span>
-    <span class="skill">PyTorch</span>
-    <span class="skill">Python</span>
-    <span class="skill">Web Development</span>
-    <span class="skill">HTML / CSS</span>
-    <span class="skill">JavaScript</span>
-    <span class="skill">React</span>
-    <span class="skill">SEO Technical</span>
-    <span class="skill">Automation</span>
+  <p class="animate" style="animation-delay:.5s;">
+    My work includes machine learning models, neural networks, automation tools,
+    and scalable websites with clean and efficient architecture.
+  </p>
+
+  <p class="animate" style="animation-delay:.7s;">
+    I enjoy solving real-world problems using technology and continuously improving
+    performance, accuracy, and user experience.
+  </p>
+
+  <div class="skills-title animate" style="animation-delay:.9s;">My Skills</div>
+
+  <div class="skills animate" style="animation-delay:1.1s;">
+    <div class="skill">Deep Learning</div>
+    <div class="skill">Machine Learning</div>
+    <div class="skill">Python</div>
+    <div class="skill">AI Models</div>
+    <div class="skill">Web Development</div>
+    <div class="skill">SEO</div>
+    <div class="skill">Automation</div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects">
+    <!-- 10 SAMPLE PROJECTS -->
+    <div class="project-card"><h3>Project 01</h3><p>AI-based solution description.</p></div>
+    <div class="project-card"><h3>Project 02</h3><p>Deep learning application.</p></div>
+    <div class="project-card"><h3>Project 03</h3><p>Machine learning system.</p></div>
+    <div class="project-card"><h3>Project 04</h3><p>Data analysis platform.</p></div>
+    <div class="project-card"><h3>Project 05</h3><p>Automation tool.</p></div>
+    <div class="project-card"><h3>Project 06</h3><p>Smart prediction model.</p></div>
+    <div class="project-card"><h3>Project 07</h3><p>AI web dashboard.</p></div>
+    <div class="project-card"><h3>Project 08</h3><p>Neural network project.</p></div>
+    <div class="project-card"><h3>Project 09</h3><p>Custom ML pipeline.</p></div>
+    <div class="project-card"><h3>Project 10</h3><p>Intelligent system.</p></div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <a href="#">Instagram</a>
+    <a href="#">GitHub</a>
+    <a href="#">Ponisha</a>
+    <a href="#">Karlancer</a>
+    <a href="mailto:your@email.com">Email</a>
   </div>
 </section>
 
 </body>
 </html>
-
-
