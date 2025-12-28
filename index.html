@@ -21,7 +21,7 @@ body{
 
 /* ===== NAV ===== */
 nav{
-  background:#01040d; /* فقط کمی تیره‌تر */
+  background:#01040d;
   padding:18px 32px;
   display:flex;
   gap:40px;
@@ -36,7 +36,7 @@ nav{
 nav a{
   text-decoration:none;
   color:#e5e7eb;
-  font-size:18px;
+  font-size:16px; /* فقط کوچکتر شد */
   letter-spacing:1px;
 }
 
@@ -49,12 +49,12 @@ section{
 
 /* ===== HOME ===== */
 h1{
-  font-size:28px; /* کوچکتر */
+  font-size:28px;
   margin-bottom:6px;
 }
 
 .subtitle{
-  font-size:30px; /* بزرگتر */
+  font-size:30px;
   color:#60a5fa;
 }
 
@@ -78,6 +78,13 @@ h1{
   padding:22px;
   border-radius:14px;
   cursor:pointer;
+  display:block;
+  text-decoration:none;
+  color:#e5e7eb;
+}
+
+.project-card:hover{
+  border-color:#f97316;
 }
 
 /* ===== CONTACT ===== */
@@ -118,7 +125,6 @@ h1{
 
 <body>
 
-<!-- ===== NAV ===== -->
 <nav>
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
@@ -126,7 +132,6 @@ h1{
   <a href="#contact">CONTACT</a>
 </nav>
 
-<!-- ===== HOME ===== -->
 <section id="home">
   <h1 class="animate" style="animation-delay:.1s;">Hadi Kanani</h1>
   <div class="subtitle animate" style="animation-delay:.3s;">
@@ -134,7 +139,6 @@ h1{
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
   <h2 class="animate">About Me</h2>
 
@@ -179,18 +183,16 @@ h1{
   </p>
 </section>
 
-<!-- ===== PROJECTS ===== -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
-    <div class="project-card">Project 01 (link later)</div>
-    <div class="project-card">Project 02 (link later)</div>
-    <div class="project-card">Project 03 (link later)</div>
-    <div class="project-card">Project 04 (link later)</div>
+    <a class="project-card" href="#" target="_blank">Project 01</a>
+    <a class="project-card" href="#" target="_blank">Project 02</a>
+    <a class="project-card" href="#" target="_blank">Project 03</a>
+    <a class="project-card" href="#" target="_blank">Project 04</a>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
