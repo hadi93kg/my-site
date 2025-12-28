@@ -22,9 +22,9 @@ body{
 /* ===== NAV ===== */
 nav{
   background:#01040d;
-  padding:18px 32px;
+  padding:12px 20px; /* کوچکتر */
   display:flex;
-  gap:40px;
+  gap:24px; /* فاصله کمتر */
   align-items:center;
   position:fixed;
   top:0;
@@ -36,7 +36,7 @@ nav{
 nav a{
   text-decoration:none;
   color:#e5e7eb;
-  font-size:16px; /* فقط کوچکتر شد */
+  font-size:16px;
   letter-spacing:1px;
 }
 
@@ -110,14 +110,22 @@ h1{
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
+  nav{
+    padding:10px 12px;
+    gap:18px;
+    justify-content:flex-start; /* HOME بچسبه به چپ */
+  }
+
   section{
-    padding:110px 14px 70px;
+    padding:110px 20px 70px;
   }
+
   h1{
-    font-size:20px;
+    font-size:24px;
   }
+
   .subtitle{
-    font-size:27px;
+    font-size:24px;
   }
 }
 </style>
@@ -125,6 +133,7 @@ h1{
 
 <body>
 
+<!-- ===== NAV ===== -->
 <nav>
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
@@ -132,6 +141,7 @@ h1{
   <a href="#contact">CONTACT</a>
 </nav>
 
+<!-- ===== HOME ===== -->
 <section id="home">
   <h1 class="animate" style="animation-delay:.1s;">Hadi Kanani</h1>
   <div class="subtitle animate" style="animation-delay:.3s;">
@@ -139,6 +149,7 @@ h1{
   </div>
 </section>
 
+<!-- ===== ABOUT ===== -->
 <section id="about">
   <h2 class="animate">About Me</h2>
 
@@ -183,6 +194,22 @@ h1{
   </p>
 </section>
 
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <h2 class="animate">Skills</h2>
+  <p class="animate">
+    • Artificial Intelligence (AI)<br>
+    • Deep Learning & Neural Networks<br>
+    • Machine Learning<br>
+    • Python<br>
+    • Data Analysis<br>
+    • Model Training & Optimization<br>
+    • AI Automation<br>
+    • Technical SEO
+  </p>
+</section>
+
+<!-- ===== PROJECTS ===== -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
@@ -193,6 +220,7 @@ h1{
   </div>
 </section>
 
+<!-- ===== CONTACT ===== -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
@@ -206,6 +234,3 @@ h1{
 
 </body>
 </html>
-
-
-
