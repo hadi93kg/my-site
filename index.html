@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Hadi | AI & Deep Learning Developer</title>
 
 <style>
@@ -22,10 +21,10 @@ body{
 
 /* ===== NAV ===== */
 nav{
-  background:#020617;
-  padding:16px 28px;
+  background:#01040d; /* فقط کمی تیره‌تر */
+  padding:18px 32px;
   display:flex;
-  gap:32px;
+  gap:40px;
   align-items:center;
   position:fixed;
   top:0;
@@ -37,13 +36,8 @@ nav{
 nav a{
   text-decoration:none;
   color:#e5e7eb;
-  font-size:17px;
+  font-size:18px;
   letter-spacing:1px;
-  transition:.3s;
-}
-
-nav a:hover{
-  color:#f97316;
 }
 
 /* ===== SECTIONS ===== */
@@ -53,14 +47,14 @@ section{
   margin:auto;
 }
 
-/* ===== TITLES ===== */
+/* ===== HOME ===== */
 h1{
-  font-size:30px;
-  margin-bottom:8px;
+  font-size:28px; /* کوچکتر */
+  margin-bottom:6px;
 }
 
 .subtitle{
-  font-size:26px;
+  font-size:30px; /* بزرگتر */
   color:#60a5fa;
 }
 
@@ -68,27 +62,6 @@ h1{
 #about p{
   margin-top:18px;
   font-size:18px;
-}
-
-/* ===== SKILLS ===== */
-.skills-title{
-  margin-top:40px;
-  font-size:22px;
-  color:#f97316;
-}
-
-.skills{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-}
-
-.skill{
-  border:1px solid #1e293b;
-  padding:9px 15px;
-  border-radius:8px;
-  font-size:16px;
 }
 
 /* ===== PROJECTS ===== */
@@ -104,38 +77,23 @@ h1{
   border:1px solid #1e293b;
   padding:22px;
   border-radius:14px;
-  transition:.4s;
   cursor:pointer;
+}
+
+/* ===== CONTACT ===== */
+.contact div{
+  margin:12px 0;
+  font-size:18px;
+  color:#60a5fa;
+}
+
+/* ===== ANIMATION ===== */
+.animate{
   opacity:0;
   transform:translateY(20px);
   animation:fadeUp .8s forwards;
 }
 
-.project-card:hover{
-  transform:translateY(-6px);
-  border-color:#f97316;
-}
-
-.project-card h3{
-  font-size:21px;
-  margin-bottom:10px;
-}
-
-.project-card p{
-  font-size:16px;
-  color:#cbd5f5;
-}
-
-/* ===== CONTACT ===== */
-.contact a{
-  display:block;
-  margin:10px 0;
-  text-decoration:none;
-  color:#60a5fa;
-  font-size:18px;
-}
-
-/* ===== ANIMATION ===== */
 @keyframes fadeUp{
   to{
     opacity:1;
@@ -143,29 +101,16 @@ h1{
   }
 }
 
-.animate{
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp .8s forwards;
-}
-
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  nav{
-    gap:22px;
-    overflow-x:auto;
-  }
-  nav a{
-    font-size:15px;
-  }
-  h1{
-    font-size:26px;
-  }
-  .subtitle{
-    font-size:22px;
-  }
   section{
     padding:110px 20px 70px;
+  }
+  h1{
+    font-size:24px;
+  }
+  .subtitle{
+    font-size:24px;
   }
 }
 </style>
@@ -191,74 +136,69 @@ h1{
 
 <!-- ===== ABOUT ===== -->
 <section id="about">
-  <h2 class="animate" style="animation-delay:.1s;">About Me</h2>
+  <h2 class="animate">About Me</h2>
 
-  <p class="animate" style="animation-delay:.3s;">
-    I am an AI & Deep Learning developer focused on building intelligent systems,
-    data-driven solutions, and modern web applications.
+  <p class="animate">
+    I am an AI and Deep Learning developer focused on designing and building intelligent systems
+    that solve real-world problems using data-driven approaches.
   </p>
 
-  <p class="animate" style="animation-delay:.5s;">
-    My work includes machine learning models, neural networks, automation tools,
-    and scalable websites with clean and efficient architecture.
+  <p class="animate">
+    My experience includes developing machine learning models, neural networks, automation tools,
+    and scalable web applications with clean and optimized architectures.
   </p>
 
-  <p class="animate" style="animation-delay:.7s;">
-    I enjoy solving real-world problems using technology and continuously improving
-    performance, accuracy, and user experience.
+  <p class="animate">
+    I work on projects related to prediction systems, data analysis, AI-powered dashboards,
+    and technical SEO for modern websites.
   </p>
 
-  <p class="animate" style="animation-delay:.9s;">
-    من توسعه‌دهنده هوش مصنوعی و دیپ‌لرنینگ هستم و تمرکزم روی ساخت سیستم‌های هوشمند،
-    مدل‌های یادگیری ماشین، ابزارهای اتوماسیون و وب‌سایت‌های مدرن و بهینه است.
+  <p class="animate">
+    I am constantly learning and improving to deliver accurate, efficient, and practical solutions
+    for businesses and clients.
   </p>
 
-  <div class="skills-title animate" style="animation-delay:1.1s;">My Skills</div>
+  <p class="animate">
+    من توسعه‌دهنده هوش مصنوعی و یادگیری عمیق هستم و تمرکزم روی طراحی و پیاده‌سازی سیستم‌های هوشمند
+    برای حل مسائل واقعی با رویکردهای داده‌محور است.
+  </p>
 
-  <div class="skills animate" style="animation-delay:1.3s;">
-    <div class="skill">Deep Learning</div>
-    <div class="skill">Machine Learning</div>
-    <div class="skill">Python</div>
-    <div class="skill">AI Models</div>
-    <div class="skill">Web Development</div>
-    <div class="skill">SEO</div>
-    <div class="skill">Automation</div>
-  </div>
+  <p class="animate">
+    تجربه‌ی من شامل ساخت مدل‌های یادگیری ماشین، شبکه‌های عصبی، ابزارهای اتوماسیون
+    و وب‌اپلیکیشن‌های مقیاس‌پذیر با معماری تمیز و بهینه می‌شود.
+  </p>
+
+  <p class="animate">
+    روی پروژه‌هایی مانند سیستم‌های پیش‌بینی، تحلیل داده، داشبوردهای هوشمند
+    و سئوی تکنیکال برای وب‌سایت‌های مدرن کار می‌کنم.
+  </p>
+
+  <p class="animate">
+    همیشه در حال یادگیری و بهبود هستم تا راه‌حل‌هایی دقیق، کاربردی و قابل اعتماد
+    برای کسب‌وکارها و مشتریان ارائه دهم.
+  </p>
 </section>
 
 <!-- ===== PROJECTS ===== -->
 <section id="projects">
-  <h2 class="animate">Projects</h2>
-
+  <h2>Projects</h2>
   <div class="projects">
-    <a class="project-card" href="#">
-      <h3>Project 01</h3>
-      <p>AI-based solution</p>
-    </a>
-    <a class="project-card" href="#">
-      <h3>Project 02</h3>
-      <p>Deep learning system</p>
-    </a>
-    <a class="project-card" href="#">
-      <h3>Project 03</h3>
-      <p>Automation platform</p>
-    </a>
-    <a class="project-card" href="#">
-      <h3>Project 04</h3>
-      <p>Web AI dashboard</p>
-    </a>
+    <div class="project-card">Project 01 (link later)</div>
+    <div class="project-card">Project 02 (link later)</div>
+    <div class="project-card">Project 03 (link later)</div>
+    <div class="project-card">Project 04 (link later)</div>
   </div>
 </section>
 
 <!-- ===== CONTACT ===== -->
 <section id="contact">
-  <h2 class="animate">Contact</h2>
-  <div class="contact animate">
-    <a href="#">Instagram</a>
-    <a href="#">GitHub</a>
-    <a href="#">Ponisha</a>
-    <a href="#">Karlancer</a>
-    <a href="mailto:your@email.com">Email</a>
+  <h2>Contact</h2>
+  <div class="contact">
+    <div>Email: [your-email-here]</div>
+    <div>Instagram: [instagram-link]</div>
+    <div>GitHub: [github-link]</div>
+    <div>Ponisha: [ponisha-profile]</div>
+    <div>Karlancer: [karlancer-profile]</div>
   </div>
 </section>
 
