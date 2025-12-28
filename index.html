@@ -22,9 +22,9 @@ body{
 /* ===== NAV ===== */
 nav{
   background:#01040d;
-  padding:12px 20px; /* کوچکتر */
+  padding:12px 20px;
   display:flex;
-  gap:24px; /* فاصله کمتر */
+  gap:24px;
   align-items:center;
   position:fixed;
   top:0;
@@ -87,11 +87,17 @@ h1{
   border-color:#f97316;
 }
 
-/* ===== CONTACT ===== */
-.contact div{
+/* ===== CONTACT LINKS (اضافه شده) ===== */
+.contact-link{
+  display:block;
   margin:12px 0;
   font-size:18px;
   color:#60a5fa;
+  text-decoration:none;
+}
+
+.contact-link:hover{
+  color:#f97316;
 }
 
 /* ===== ANIMATION ===== */
@@ -113,7 +119,7 @@ h1{
   nav{
     padding:10px 12px;
     gap:18px;
-    justify-content:flex-start; /* HOME بچسبه به چپ */
+    justify-content:flex-start;
   }
 
   section{
@@ -133,7 +139,6 @@ h1{
 
 <body>
 
-<!-- ===== NAV ===== -->
 <nav>
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
@@ -141,7 +146,6 @@ h1{
   <a href="#contact">CONTACT</a>
 </nav>
 
-<!-- ===== HOME ===== -->
 <section id="home">
   <h1 class="animate" style="animation-delay:.1s;">Hadi Kanani</h1>
   <div class="subtitle animate" style="animation-delay:.3s;">
@@ -149,7 +153,6 @@ h1{
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
   <h2 class="animate">About Me</h2>
 
@@ -194,7 +197,6 @@ h1{
   </p>
 </section>
 
-<!-- ===== SKILLS ===== -->
 <section id="skills">
   <h2 class="animate">Skills</h2>
   <p class="animate">
@@ -202,80 +204,42 @@ h1{
     • Deep Learning & Neural Networks<br>
     • Machine Learning<br>
     • Python<br>
-    • web developer<br>
+    • Web Development<br>
     • Data Analysis<br>
     • Model Training & Optimization<br>
     • AI Automation<br>
     • Technical SEO
-    
   </p>
 </section>
 
-<!-- ===== PROJECTS ===== -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1283001&portfolio-username=Kananih93" target="_blank">سیستم حضور و غیاب با QR Code + داشبورد مدیریت ( SQLAlchemy)</a>
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1282062&portfolio-username=Kananih93" target="_blank">سیستم مدیریت انبار و محصولات با QR Code (قابل ارتقا)</a>
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1280889&portfolio-username=Kananih93" target="_blank">منوی رستوران با QR Code – Restaurant QR Menu</a>
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1275839&portfolio-username=Kananih93" target="_blank">تشخیص ناهنجاری در تصاویر صنعتی(Deep Learning-FastAPI)</a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1283001&portfolio-username=Kananih93" target="_blank">
+      سیستم حضور و غیاب با QR Code + داشبورد مدیریت (SQLAlchemy)
+    </a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1282062&portfolio-username=Kananih93" target="_blank">
+      سیستم مدیریت انبار و محصولات با QR Code (قابل ارتقا)
+    </a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1280889&portfolio-username=Kananih93" target="_blank">
+      منوی رستوران با QR Code – Restaurant QR Menu
+    </a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1275839&portfolio-username=Kananih93" target="_blank">
+      تشخیص ناهنجاری در تصاویر صنعتی (Deep Learning – FastAPI)
+    </a>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
-
-    <a class="contact-link"
-       href="mailto:your@email.com"
-       target="_blank">
-      Email: your@email.com
-    </a>
-
-    <a class="contact-link"
-       href="https://instagram.com/YOUR_USERNAME"
-       target="_blank">
-      Instagram
-    </a>
-
-    <a class="contact-link"
-       href="https://github.com/YOUR_USERNAME"
-       target="_blank">
-      GitHub
-    </a>
-
-    <a class="contact-link"
-       href="https://ponisha.ir/profile/YOUR_PROFILE"
-       target="_blank">
-      Ponisha
-    </a>
-
-    <a class="contact-link"
-       href="https://www.karlancer.com/profile/YOUR_PROFILE"
-       target="_blank">
-      Karlancer
-    </a>
-
+    <a class="contact-link" href="mailto:your@email.com">Email: your@email.com</a>
+    <a class="contact-link" href="https://instagram.com/YOUR_USERNAME" target="_blank">Instagram</a>
+    <a class="contact-link" href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+    <a class="contact-link" href="https://ponisha.ir/profile/YOUR_PROFILE" target="_blank">Ponisha</a>
+    <a class="contact-link" href="https://www.karlancer.com/profile/YOUR_PROFILE" target="_blank">Karlancer</a>
   </div>
 </section>
 
-.contact-link{
-  display:block;
-  margin:12px 0;
-  font-size:18px;
-  color:#60a5fa;
-  text-decoration:none;
-}
-
-.contact-link:hover{
-  color:#f97316;
-}
 </body>
 </html>
-
-
-
-
-
-
