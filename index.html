@@ -38,6 +38,29 @@ nav a{
   color:#e5e7eb;
   font-size:16px;
   letter-spacing:1px;
+  position:relative;
+  transition:color .3s ease, transform .3s ease;
+}
+
+/* 🔥 NAV HOVER ANIMATION */
+nav a:hover{
+  color:#f97316;
+  transform:translateY(-2px);
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#f97316;
+  transition:width .3s ease;
+}
+
+nav a:hover::after{
+  width:100%;
 }
 
 /* ===== SECTIONS ===== */
@@ -81,10 +104,17 @@ h1{
   display:block;
   text-decoration:none;
   color:#e5e7eb;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
 }
 
+/* 🔥 PROJECT CARD ANIMATION */
 .project-card:hover{
-  border-color:#f97316;
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 0 18px rgba(249,115,22,.35);
+  border-color:#fb923c;
 }
 
 /* ===== CONTACT LINKS ===== */
@@ -94,13 +124,15 @@ h1{
   font-size:18px;
   color:#60a5fa;
   text-decoration:none;
+  transition:color .3s ease, transform .3s ease;
 }
 
 .contact-link:hover{
   color:#f97316;
+  transform:translateX(6px);
 }
 
-/* ===== RTL PERSIAN TEXT (فقط اضافه شده) ===== */
+/* ===== RTL PERSIAN TEXT ===== */
 .fa{
   direction: rtl;
   text-align: right;
@@ -182,7 +214,6 @@ h1{
     for businesses and clients.
   </p>
 
-  <!-- Persian (RTL) -->
   <p class="animate fa">
     من توسعه‌دهنده هوش مصنوعی و یادگیری عمیق هستم و تمرکزم روی طراحی و پیاده‌سازی سیستم‌های هوشمند
     برای حل مسائل واقعی با رویکردهای داده‌محور است.
@@ -250,4 +281,3 @@ h1{
 
 </body>
 </html>
-
