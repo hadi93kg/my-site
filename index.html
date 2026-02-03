@@ -42,7 +42,6 @@ nav a{
   transition:color .3s ease, transform .3s ease;
 }
 
-/* 🔥 NAV HOVER ANIMATION */
 nav a:hover{
   color:#f97316;
   transform:translateY(-2px);
@@ -81,6 +80,16 @@ h1{
   color:#60a5fa;
 }
 
+/* ===== GESTURE CIRCLE ===== */
+#gesture-circle{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:3px solid #f97316;
+  margin-top:40px;
+  transition:transform .25s ease;
+}
+
 /* ===== ABOUT ===== */
 #about p{
   margin-top:18px;
@@ -110,7 +119,6 @@ h1{
     border-color .35s ease;
 }
 
-/* 🔥 PROJECT CARD ANIMATION */
 .project-card:hover{
   transform:translateY(-6px) scale(1.02);
   box-shadow:0 0 18px rgba(249,115,22,.35);
@@ -151,13 +159,11 @@ h1{
     transform:translateY(0);
   }
 }
-
 /* ===== MOBILE ===== */
 @media(max-width:768px){
   nav{
     padding:10px 12px;
     gap:18px;
-    justify-content:flex-start;
   }
 
   section{
@@ -189,6 +195,8 @@ h1{
   <div class="subtitle animate" style="animation-delay:.3s;">
     AI & Deep Learning Developer
   </div>
+
+  <div id="gesture-circle"></div>
 </section>
 
 <section id="about">
@@ -249,37 +257,61 @@ h1{
     • Technical SEO
   </p>
 </section>
-
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1283001&portfolio-username=Kananih93" target="_blank">
-      سیستم حضور و غیاب با QR Code + داشبورد مدیریت (SQLAlchemy)
-    </a>
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1282062&portfolio-username=Kananih93" target="_blank">
-      سیستم مدیریت انبار و محصولات با QR Code (قابل ارتقا)
-    </a>
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1280889&portfolio-username=Kananih93" target="_blank">
-      منوی رستوران با QR Code – Restaurant QR Menu
-    </a>
-    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1275839&portfolio-username=Kananih93" target="_blank">
-      تشخیص ناهنجاری در تصاویر صنعتی (Deep Learning – FastAPI)
-    </a>
+    <a class="project-card" href="#" target="_blank">Project 1</a>
+    <a class="project-card" href="#" target="_blank">Project 2</a>
+    <a class="project-card" href="#" target="_blank">Project 3</a>
+    <a class="project-card" href="#" target="_blank">Project 4</a>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
-    <a class="contact-link" href="mailto:kanaanihadi1993@gmail.com">Email: kanaanihadi1993@gmail.com</a>
-    <a class="contact-link" href="https://www.instagram.com/hadi93.ai" target="_blank">Instagram</a>
-    <a class="contact-link" href="https://github.com/hadi93kg" target="_blank">GitHub</a>
-    <a class="contact-link" href="https://ponisha.ir/profile/Kananih93" target="_blank">Ponisha</a>
-    <a class="contact-link" href="https://www.karlancer.com/profile/719563" target="_blank">Karlancer</a>
-    <a class="contact-link" href="https://jobvision.ir/my-cv" target="_blank">Jobvision</a>
+    <a class="contact-link" href="#">Email</a>
+    <a class="contact-link" href="#">Instagram</a>
+    <a class="contact-link" href="#">GitHub</a>
   </div>
 </section>
 
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
 
+<script>
+const circle = document.getElementById("gesture-circle");
+
+const hands = new Hands({
+  locateFile: file => 
+    https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}
+});
+
+hands.setOptions({
+  maxNumHands: 1,
+  minDetectionConfidence: 0.7,
+  minTrackingConfidence: 0.7
+});
+
+hands.onResults(results => {
+  if(results.multiHandLandmarks.length){
+    const lm = results.multiHandLandmarks[0];
+    const d = Math.hypot(lm[4].x - lm[8].x, lm[4].y - lm[8].y);
+    circle.style.transform = d > 0.1 ? "scale(2)" : "scale(0.7)";
+  }
+});
+
+const video = document.createElement("video");
+const camera = new Camera(video, {
+  onFrame: async () => {
+    await hands.send({image: video});
+  },
+  width: 640,
+  height: 480
+});
+camera.start();
+</script>
+
+</body>
+</html>  
+  
