@@ -17,6 +17,7 @@ body{
   color:#e5e7eb;
   font-family:"Times New Roman", Times, serif;
   line-height:1.8;
+  overflow:hidden;
 }
 
 /* ===== NAV ===== */
@@ -38,28 +39,6 @@ nav a{
   color:#e5e7eb;
   font-size:16px;
   letter-spacing:1px;
-  position:relative;
-  transition:color .3s ease, transform .3s ease;
-}
-
-nav a:hover{
-  color:#f97316;
-  transform:translateY(-2px);
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:#f97316;
-  transition:width .3s ease;
-}
-
-nav a:hover::after{
-  width:100%;
 }
 
 /* ===== SECTIONS ===== */
@@ -67,116 +46,21 @@ section{
   padding:120px 40px 80px;
   max-width:1100px;
   margin:auto;
+  position:relative;
+  z-index:10;
 }
 
-/* ===== HOME ===== */
-h1{
-  font-size:28px;
-  margin-bottom:6px;
+/* ===== HIDE CAMERA ===== */
+video{
+  display:none;
 }
 
-.subtitle{
-  font-size:30px;
-  color:#60a5fa;
-}
-
-/* ===== GESTURE CIRCLE ===== */
-#gesture-circle{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:3px solid #f97316;
-  margin-top:40px;
-  transition:transform .25s ease;
-}
-
-/* ===== ABOUT ===== */
-#about p{
-  margin-top:18px;
-  font-size:18px;
-}
-
-/* ===== PROJECTS ===== */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
-  margin-top:30px;
-}
-
-.project-card{
-  background:#020617;
-  border:1px solid #f97316;
-  padding:22px;
-  border-radius:14px;
-  cursor:pointer;
-  display:block;
-  text-decoration:none;
-  color:#e5e7eb;
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
-}
-
-.project-card:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:0 0 18px rgba(249,115,22,.35);
-  border-color:#fb923c;
-}
-
-/* ===== CONTACT LINKS ===== */
-.contact-link{
-  display:block;
-  margin:12px 0;
-  font-size:18px;
-  color:#60a5fa;
-  text-decoration:none;
-  transition:color .3s ease, transform .3s ease;
-}
-
-.contact-link:hover{
-  color:#f97316;
-  transform:translateX(6px);
-}
-
-/* ===== RTL PERSIAN TEXT ===== */
-.fa{
-  direction: rtl;
-  text-align: right;
-}
-
-/* ===== ANIMATION ===== */
-.animate{
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp .8s forwards;
-}
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  nav{
-    padding:10px 12px;
-    gap:18px;
-  }
-
-  section{
-    padding:110px 20px 70px;
-  }
-
-  h1{
-    font-size:24px;
-  }
-
-  .subtitle{
-    font-size:24px;
-  }
+/* ===== CANVAS (GESTURE LAYER) ===== */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1;
 }
 </style>
 </head>
@@ -191,127 +75,82 @@ h1{
 </nav>
 
 <section id="home">
-  <h1 class="animate" style="animation-delay:.1s;">Hadi Kanani</h1>
-  <div class="subtitle animate" style="animation-delay:.3s;">
-    AI & Deep Learning Developer
-  </div>
-
-  <div id="gesture-circle"></div>
+  <h1>Hadi Kanani</h1>
+  <div class="subtitle">AI & Deep Learning Developer</div>
 </section>
 
 <section id="about">
-  <h2 class="animate">About Me</h2>
-
-  <p class="animate">
-    I am an AI and Deep Learning developer focused on designing and building intelligent systems
-    that solve real-world problems using data-driven approaches.
-  </p>
-
-  <p class="animate">
-    My experience includes developing machine learning models, neural networks, automation tools,
-    and scalable web applications with clean and optimized architectures.
-  </p>
-
-  <p class="animate">
-    I work on projects related to prediction systems, data analysis, AI-powered dashboards,
-    and technical SEO for modern websites.
-  </p>
-
-  <p class="animate">
-    I am constantly learning and improving to deliver accurate, efficient, and practical solutions
-    for businesses and clients.
-  </p>
-
-  <p class="animate fa">
-    من توسعه‌دهنده هوش مصنوعی و یادگیری عمیق هستم و تمرکزم روی طراحی و پیاده‌سازی سیستم‌های هوشمند
-    برای حل مسائل واقعی با رویکردهای داده‌محور است.
-  </p>
-
-  <p class="animate fa">
-    تجربه‌ی من شامل ساخت مدل‌های یادگیری ماشین، شبکه‌های عصبی، ابزارهای اتوماسیون
-    و وب‌اپلیکیشن‌های مقیاس‌پذیر با معماری تمیز و بهینه می‌شود.
-  </p>
-
-  <p class="animate fa">
-    روی پروژه‌هایی مانند سیستم‌های پیش‌بینی، تحلیل داده، داشبوردهای هوشمند
-    و سئوی تکنیکال برای وب‌سایت‌های مدرن کار می‌کنم.
-  </p>
-
-  <p class="animate fa">
-    همیشه در حال یادگیری و بهبود هستم تا راه‌حل‌هایی دقیق، کاربردی و قابل اعتماد
-    برای کسب‌وکارها و مشتریان ارائه دهم.
-  </p>
+  <h2>About Me</h2>
+  <p>I am an AI and Deep Learning developer focused on building intelligent systems.</p>
 </section>
 
-<section id="skills">
-  <h2 class="animate">Skills</h2>
-  <p class="animate">
-    • Artificial Intelligence (AI)<br>
-    • Deep Learning & Neural Networks<br>
-    • Machine Learning<br>
-    • Python<br>
-    • Web Development<br>
-    • Data Analysis<br>
-    • Model Training & Optimization<br>
-    • AI Automation<br>
-    • Technical SEO
-  </p>
-</section>
 <section id="projects">
   <h2>Projects</h2>
-  <div class="projects">
-    <a class="project-card" href="#" target="_blank">Project 1</a>
-    <a class="project-card" href="#" target="_blank">Project 2</a>
-    <a class="project-card" href="#" target="_blank">Project 3</a>
-    <a class="project-card" href="#" target="_blank">Project 4</a>
-  </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <div class="contact">
-    <a class="contact-link" href="#">Email</a>
-    <a class="contact-link" href="#">Instagram</a>
-    <a class="contact-link" href="#">GitHub</a>
-  </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<!-- CAMERA (HIDDEN) -->
+<video id="video" autoplay playsinline></video>
 
-<script>
-const circle = document.getElementById("gesture-circle");
+<!-- GESTURE CANVAS -->
+<canvas id="canvas"></canvas>
 
-const hands = new Hands({
-  locateFile: file => 
-    https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}
-});
+<script type="module">
+import { HandLandmarker, FilesetResolver } from 
+"https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
 
-hands.setOptions({
-  maxNumHands: 1,
-  minDetectionConfidence: 0.7,
-  minTrackingConfidence: 0.7
-});
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-hands.onResults(results => {
-  if(results.multiHandLandmarks.length){
-    const lm = results.multiHandLandmarks[0];
-    const d = Math.hypot(lm[4].x - lm[8].x, lm[4].y - lm[8].y);
-    circle.style.transform = d > 0.1 ? "scale(2)" : "scale(0.7)";
-  }
-});
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-const video = document.createElement("video");
-const camera = new Camera(video, {
-  onFrame: async () => {
-    await hands.send({image: video});
+// Webcam
+const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+video.srcObject = stream;
+
+// AI model
+const vision = await FilesetResolver.forVisionTasks(
+  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+);
+
+const handLandmarker = await HandLandmarker.createFromOptions(vision, {
+  baseOptions: {
+    modelAssetPath:
+      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/hand_landmarker.task"
   },
-  width: 640,
-  height: 480
+  numHands: 1
 });
-camera.start();
+
+async function loop(){
+  const results = handLandmarker.detectForVideo(video, performance.now());
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  if(results.landmarks.length > 0){
+    const thumb = results.landmarks[0][4];
+    const index = results.landmarks[0][8];
+
+    const dx = (thumb.x - index.x) * canvas.width;
+    const dy = (thumb.y - index.y) * canvas.height;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+
+    // Draw reactive circle
+    ctx.beginPath();
+    ctx.arc(canvas.width/2, canvas.height/2, dist, 0, Math.PI*2);
+    ctx.strokeStyle = "#f97316";
+    ctx.lineWidth = 4;
+    ctx.stroke();
+  }
+
+  requestAnimationFrame(loop);
+}
+
+loop();
 </script>
 
 </body>
-</html>  
-  
+</html>
