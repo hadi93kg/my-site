@@ -3,29 +3,16 @@
 <body>
 
 <h1>Camera Test</h1>
-
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<video id="cam" autoplay></video>
 
 <script>
-alert("JS Loaded");
-
-const hands = new Hands({
-  locateFile: file => 
-    https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}
-});
-
-hands.onResults(() => {});
-
-const video = document.createElement("video");
-
-const camera = new Camera(video, {
-  onFrame: async () => {
-    await hands.send({image: video});
-  }
-});
-
-camera.start();
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => {
+    document.getElementById("cam").srcObject = stream;
+  })
+  .catch(err => {
+    alert("Camera error: " + err);
+  });
 </script>
 
 </body>
