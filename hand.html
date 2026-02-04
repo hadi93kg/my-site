@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hand Gesture Demo</title>
+  <style>
+    body {
+      margin:0;
+      background:#020617;
+      color:white;
+      overflow:hidden;
+      font-family:Arial;
+    }
+    video {
+      position:fixed;
+      top:10px;
+      right:10px;
+      width:200px;
+      border:2px solid #f97316;
+      border-radius:12px;
+    }
+    canvas {
+      position:fixed;
+      top:0;
+      left:0;
+    }
+  </style>
+</head>
+<body>
+
+<video id="cam" autoplay></video>
+<canvas id="canvas"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+<script>
+const video = document.getElementById("cam");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const hands = new Hands({
+  locateFile: file => 
+    https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}
+});
+
+hands.setOptions({
+  maxNumHands: 1,
+  minDetectionConfidence: 0.7,
+  minTrackingConfidence: 0.7
+});
+
+hands.onResults(results => {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  let radius = 50;
+
+  if (results.multiHandLandmarks) {
+    const lm = results.multiHandLandmarks[0];
+
+    const thumb = lm[4];
+    const index = lm[8];
+
+    const dx = (thumb.x - index.x) * canvas.width;
+    const dy = (thumb.y - index.y) * canvas.height;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+
+    radius = dist;
+  }
+
+  ctx.beginPath();
+  ctx.arc(canvas.width/2, canvas.height/2, radius, 0, Math.PI*2);
+  ctx.strokeStyle = "#f97316";
+  ctx.lineWidth = 4;
+  ctx.stroke();
+});
+
+const camera = new Camera(video, {
+  onFrame: async () => {
+    await hands.send({image: video});
+  },
+  width: 640,
+  height: 480
+});
+
+camera.start();
+</script>
+
+</body>
+</html>
