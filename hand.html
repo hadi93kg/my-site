@@ -4,19 +4,25 @@
 <meta charset="UTF-8">
 <title>Hand Interaction</title>
 <style>
-html,body{
-  margin:0;
-  padding:0;
-  background:#020617;
-  overflow:hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-video{
-  display:none;
+
+video {
+  display: none;
 }
 </style>
 </head>
@@ -26,58 +32,58 @@ video{
 <canvas id="canvas"></canvas>
 
 <script type="module">
-import { FilesetResolver, HandLandmarker }
-  from "./wasm/vision_bundle.mjs";
+import { FilesetResolver, HandLandmarker } from "./wasm/vision_bundle.mjs";
 
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
+// وبکم
 const stream = await navigator.mediaDevices.getUserMedia({ video:true });
 video.srcObject = stream;
 await video.play();
 
-const filesetResolver =
-  await FilesetResolver.forVisionTasks("./wasm");
+// فایل‌های wasm و مدل
+const filesetResolver = await FilesetResolver.forVisionTasks("./wasm");
+const handLandmarker = await HandLandmarker.createFromOptions(
+  filesetResolver,
+  {
+    baseOptions: {
+      modelAssetPath: "./models/hand_landmarker.task"
+    },
+    numHands: 1,
+    runningMode: "VIDEO"
+  }
+);
 
-const handLandmarker =
-  await HandLandmarker.createFromOptions(
-    filesetResolver,
-    {
-      baseOptions: {
-        modelAssetPath: "./models/hand_landmarker.task"
-      },
-      numHands: 1,
-      runningMode: "VIDEO"
-    }
-  );
-
-function loop(){
+// رسم نقاط دست
+function drawLoop() {
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  const results =
-    handLandmarker.detectForVideo(video, performance.now());
+
+  const results = handLandmarker.detectForVideo(video, performance.now());
 
   if(results.landmarks){
     for(const hand of results.landmarks){
       for(const p of hand){
+        const x = p.x * canvas.width;
+        const y = p.y * canvas.height;
+
         ctx.beginPath();
-        ctx.arc(
-          p.x * canvas.width,
-          p.y * canvas.height,
-          6,0,Math.PI*2
-        );
-        ctx.fillStyle="#f97316";
+        ctx.arc(x, y, 6, 0, Math.PI*2);
+        ctx.fillStyle = "#f97316"; // نارنجی
         ctx.fill();
       }
     }
   }
-  requestAnimationFrame(loop);
+
+  requestAnimationFrame(drawLoop);
 }
 
-loop();
+drawLoop();
 </script>
+
 </body>
 </html>
