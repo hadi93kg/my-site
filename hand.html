@@ -1,38 +1,37 @@
 <script type="module">
-import { FilesetResolver, HandLandmarker } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.9/vision_bundle.mjs";
+import { FilesetResolver, HandLandmarker } from "./wasm/vision_bundle.mjs";
 
-const video = document.createElement("video");
-video.autoplay = true;
-video.playsInline = true;
-video.style.display = "none";
-document.body.appendChild(video);
-
-const canvas = document.createElement("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-document.body.appendChild(canvas);
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const stream = await navigator.mediaDevices.getUserMedia({ video:true });
 video.srcObject = stream;
 await video.play();
 
-const filesetResolver = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.9/wasm");
+const filesetResolver = await FilesetResolver.forVisionTasks("./wasm");
+
 const handLandmarker = await HandLandmarker.createFromOptions(
   filesetResolver,
   {
-    baseOptions: { modelAssetPath: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.9/models/hand_landmarker.task" },
+    baseOptions: {
+      modelAssetPath: "./models/hand_landmarker.task"
+    },
     numHands: 1,
     runningMode: "VIDEO"
   }
 );
 
-function drawLoop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function drawLoop(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   const results = handLandmarker.detectForVideo(video, performance.now());
-  if (results.landmarks) {
-    for (const hand of results.landmarks) {
-      for (const p of hand) {
+
+  if(results.landmarks){
+    for(const hand of results.landmarks){
+      for(const p of hand){
         ctx.beginPath();
         ctx.arc(p.x * canvas.width, p.y * canvas.height, 6, 0, Math.PI*2);
         ctx.fillStyle = "#f97316";
@@ -42,5 +41,6 @@ function drawLoop() {
   }
   requestAnimationFrame(drawLoop);
 }
+
 drawLoop();
 </script>
