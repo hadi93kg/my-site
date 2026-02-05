@@ -1,30 +1,82 @@
 <!DOCTYPE html>
-<html>
-<body style="margin:0;background:#020617;overflow:hidden;">
-<canvas id="c"></canvas>
-
-<script>
-const c = document.getElementById("c");
-const ctx = c.getContext("2d");
-c.width = innerWidth;
-c.height = innerHeight;
-
-let r = 50;
-let dir = 1;
-
-function loop(){
-  ctx.clearRect(0,0,c.width,c.height);
-  ctx.beginPath();
-  ctx.arc(c.width/2, c.height/2, r, 0, Math.PI*2);
-  ctx.fillStyle = "orange";
-  ctx.fill();
-
-  r += dir*2;
-  if(r > 200 || r < 50) dir *= -1;
-
-  requestAnimationFrame(loop);
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hand Interaction</title>
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  background:#020617;
+  overflow:hidden;
 }
-loop();
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+video{
+  display:none;
+}
+</style>
+</head>
+<body>
+
+<video id="video" autoplay playsinline></video>
+<canvas id="canvas"></canvas>
+
+<script type="module">
+import vision from "/wasm/vision_wasm_internal.js";
+
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const stream = await navigator.mediaDevices.getUserMedia({ video:true });
+video.srcObject = stream;
+await video.play();
+
+const filesetResolver = await vision.FilesetResolver.forVisionTasks("/wasm");
+
+const handLandmarker = await vision.HandLandmarker.createFromOptions(
+  filesetResolver,
+  {
+    baseOptions: {
+      modelAssetPath: "/models/hand_landmarker.task"
+    },
+    numHands: 1,
+    runningMode: "VIDEO"
+  }
+);
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const results = handLandmarker.detectForVideo(video, performance.now());
+
+  if(results.landmarks){
+    for(const hand of results.landmarks){
+      for(const p of hand){
+        const x = p.x * canvas.width;
+        const y = p.y * canvas.height;
+
+        ctx.beginPath();
+        ctx.arc(x,y,6,0,Math.PI*2);
+        ctx.fillStyle = "#f97316";
+        ctx.fill();
+      }
+    }
+  }
+
+  requestAnimationFrame(draw);
+}
+
+draw();
 </script>
 </body>
 </html>
