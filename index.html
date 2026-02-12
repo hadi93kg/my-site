@@ -17,7 +17,6 @@ body{
   color:#e5e7eb;
   font-family:"Times New Roman", Times, serif;
   line-height:1.8;
-  overflow:hidden;
 }
 
 /* ===== NAV ===== */
@@ -39,6 +38,29 @@ nav a{
   color:#e5e7eb;
   font-size:16px;
   letter-spacing:1px;
+  position:relative;
+  transition:color .3s ease, transform .3s ease;
+}
+
+/* 🔥 NAV HOVER ANIMATION */
+nav a:hover{
+  color:#f97316;
+  transform:translateY(-2px);
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#f97316;
+  transition:width .3s ease;
+}
+
+nav a:hover::after{
+  width:100%;
 }
 
 /* ===== SECTIONS ===== */
@@ -46,21 +68,109 @@ section{
   padding:120px 40px 80px;
   max-width:1100px;
   margin:auto;
-  position:relative;
-  z-index:10;
 }
 
-/* ===== HIDE CAMERA ===== */
-video{
-  display:none;
+/* ===== HOME ===== */
+h1{
+  font-size:28px;
+  margin-bottom:6px;
 }
 
-/* ===== CANVAS (GESTURE LAYER) ===== */
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:1;
+.subtitle{
+  font-size:30px;
+  color:#60a5fa;
+}
+
+/* ===== ABOUT ===== */
+#about p{
+  margin-top:18px;
+  font-size:18px;
+}
+
+/* ===== PROJECTS ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+  margin-top:30px;
+}
+
+.project-card{
+  background:#020617;
+  border:1px solid #f97316;
+  padding:22px;
+  border-radius:14px;
+  cursor:pointer;
+  display:block;
+  text-decoration:none;
+  color:#e5e7eb;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+/* 🔥 PROJECT CARD ANIMATION */
+.project-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 0 18px rgba(249,115,22,.35);
+  border-color:#fb923c;
+}
+
+/* ===== CONTACT LINKS ===== */
+.contact-link{
+  display:block;
+  margin:12px 0;
+  font-size:18px;
+  color:#60a5fa;
+  text-decoration:none;
+  transition:color .3s ease, transform .3s ease;
+}
+
+.contact-link:hover{
+  color:#f97316;
+  transform:translateX(6px);
+}
+
+/* ===== RTL PERSIAN TEXT ===== */
+.fa{
+  direction: rtl;
+  text-align: right;
+}
+
+/* ===== ANIMATION ===== */
+.animate{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  nav{
+    padding:10px 12px;
+    gap:18px;
+    justify-content:flex-start;
+  }
+
+  section{
+    padding:110px 20px 70px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .subtitle{
+    font-size:24px;
+  }
 }
 </style>
 </head>
@@ -75,82 +185,100 @@ canvas{
 </nav>
 
 <section id="home">
-  <h1>Hadi Kanani</h1>
-  <div class="subtitle">AI & Deep Learning Developer</div>
+  <h1 class="animate" style="animation-delay:.1s;">Hadi Kanani</h1>
+  <div class="subtitle animate" style="animation-delay:.3s;">
+    AI & Deep Learning Developer
+  </div>
 </section>
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>I am an AI and Deep Learning developer focused on building intelligent systems.</p>
+  <h2 class="animate">About Me</h2>
+
+  <p class="animate">
+    I am an AI and Deep Learning developer focused on designing and building intelligent systems
+    that solve real-world problems using data-driven approaches.
+  </p>
+
+  <p class="animate">
+    My experience includes developing machine learning models, neural networks, automation tools,
+    and scalable web applications with clean and optimized architectures.
+  </p>
+
+  <p class="animate">
+    I work on projects related to prediction systems, data analysis, AI-powered dashboards,
+    and technical SEO for modern websites.
+  </p>
+
+  <p class="animate">
+    I am constantly learning and improving to deliver accurate, efficient, and practical solutions
+    for businesses and clients.
+  </p>
+
+  <p class="animate fa">
+    من توسعه‌دهنده هوش مصنوعی و یادگیری عمیق هستم و تمرکزم روی طراحی و پیاده‌سازی سیستم‌های هوشمند
+    برای حل مسائل واقعی با رویکردهای داده‌محور است.
+  </p>
+
+  <p class="animate fa">
+    تجربه‌ی من شامل ساخت مدل‌های یادگیری ماشین، شبکه‌های عصبی، ابزارهای اتوماسیون
+    و وب‌اپلیکیشن‌های مقیاس‌پذیر با معماری تمیز و بهینه می‌شود.
+  </p>
+
+  <p class="animate fa">
+    روی پروژه‌هایی مانند سیستم‌های پیش‌بینی، تحلیل داده، داشبوردهای هوشمند
+    و سئوی تکنیکال برای وب‌سایت‌های مدرن کار می‌کنم.
+  </p>
+
+  <p class="animate fa">
+    همیشه در حال یادگیری و بهبود هستم تا راه‌حل‌هایی دقیق، کاربردی و قابل اعتماد
+    برای کسب‌وکارها و مشتریان ارائه دهم.
+  </p>
+</section>
+
+<section id="skills">
+  <h2 class="animate">Skills</h2>
+  <p class="animate">
+    • Artificial Intelligence (AI)<br>
+    • Deep Learning & Neural Networks<br>
+    • Machine Learning<br>
+    • Python<br>
+    • Web Development<br>
+    • Data Analysis<br>
+    • Model Training & Optimization<br>
+    • AI Automation<br>
+    • Technical SEO
+  </p>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
+  <div class="projects">
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1283001&portfolio-username=Kananih93" target="_blank">
+      سیستم حضور و غیاب با QR Code + داشبورد مدیریت (SQLAlchemy)
+    </a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1282062&portfolio-username=Kananih93" target="_blank">
+      سیستم مدیریت انبار و محصولات با QR Code (قابل ارتقا)
+    </a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1280889&portfolio-username=Kananih93" target="_blank">
+      منوی رستوران با QR Code – Restaurant QR Menu
+    </a>
+    <a class="project-card" href="https://ponisha.ir/profile/Kananih93?username=Kananih93&portfolio-id=1275839&portfolio-username=Kananih93" target="_blank">
+      تشخیص ناهنجاری در تصاویر صنعتی (Deep Learning – FastAPI)
+    </a>
+  </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
+  <div class="contact">
+    <a class="contact-link" href="mailto:kanaanihadi1993@gmail.com">Email: kanaanihadi1993@gmail.com</a>
+    <a class="contact-link" href="https://www.instagram.com/hadi93.ai" target="_blank">Instagram</a>
+    <a class="contact-link" href="https://github.com/hadi93kg" target="_blank">GitHub</a>
+    <a class="contact-link" href="https://ponisha.ir/profile/Kananih93" target="_blank">Ponisha</a>
+    <a class="contact-link" href="https://www.karlancer.com/profile/719563" target="_blank">Karlancer</a>
+    <a class="contact-link" href="https://jobvision.ir/my-cv" target="_blank">Jobvision</a>
+  </div>
 </section>
-
-<!-- CAMERA (HIDDEN) -->
-<video id="video" autoplay playsinline></video>
-
-<!-- GESTURE CANVAS -->
-<canvas id="canvas"></canvas>
-
-<script type="module">
-import { HandLandmarker, FilesetResolver } from 
-"https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
-
-const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-// Webcam
-const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-video.srcObject = stream;
-
-// AI model
-const vision = await FilesetResolver.forVisionTasks(
-  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
-);
-
-const handLandmarker = await HandLandmarker.createFromOptions(vision, {
-  baseOptions: {
-    modelAssetPath:
-      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/hand_landmarker.task"
-  },
-  numHands: 1
-});
-
-async function loop(){
-  const results = handLandmarker.detectForVideo(video, performance.now());
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  if(results.landmarks.length > 0){
-    const thumb = results.landmarks[0][4];
-    const index = results.landmarks[0][8];
-
-    const dx = (thumb.x - index.x) * canvas.width;
-    const dy = (thumb.y - index.y) * canvas.height;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-
-    // Draw reactive circle
-    ctx.beginPath();
-    ctx.arc(canvas.width/2, canvas.height/2, dist, 0, Math.PI*2);
-    ctx.strokeStyle = "#f97316";
-    ctx.lineWidth = 4;
-    ctx.stroke();
-  }
-
-  requestAnimationFrame(loop);
-}
-
-loop();
-</script>
 
 </body>
 </html>
